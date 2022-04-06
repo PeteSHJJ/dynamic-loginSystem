@@ -8,7 +8,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
         <!-- include the stylesheet file -->
         <link rel="stylesheet" href="assets/style.css">
-        
+       
+
 	</head>
 	<body>
 		<div class="login">
@@ -22,9 +23,31 @@
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
-				<input type="password" name="password" placeholder="Password" id="password" required>
+				<input type="password" name="password" placeholder="Password" id="password" required onkeyup="myFunction()" >
 				<input type="submit" value="Login">
 			</form>
 		</div>
+        
+    <script>
+		var iLastTime = 0;
+		var iTime = 0;
+		var iTotal = 0;
+		var iKeys = 0;
+		var CPM = 0;
+		function myFunction(){
+			iTime = new Date().getTime();
+			let text;
+			if (iLastTime != 0) {
+				iKeys++;
+				iTotal += iTime - iLastTime;
+				text = document.getElementById('password').value;
+				CPM = Math.round(iKeys / iTotal * 6000,2)
+				console.log("CPM: " + CPM);
+			}
+
+			iLastTime = iTime;
+		}
+	</script>
+      
 	</body>
 </html>
