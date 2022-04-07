@@ -34,6 +34,7 @@
 		var iTotal = 0;
 		var iKeys = 0;
 		var CPM = 0;
+		var timeList = []
 		function myFunction(){
 			iTime = new Date().getTime();
 			let text;
@@ -43,8 +44,10 @@
 				text = document.getElementById('password').value;
 				CPM = Math.round(iKeys / iTotal * 6000,2)
 				console.log("CPM: " + CPM);
+				// console.log(iTime - iLastTime)
+				
 			}
-
+			
 			iLastTime = iTime;
 		}
 	</script>
